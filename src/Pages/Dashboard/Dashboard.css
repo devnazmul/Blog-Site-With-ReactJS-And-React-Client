@@ -1,0 +1,18 @@
+.dashboard {
+  box-shadow: 0 0 10px #000000ad;
+  z-index: 100;
+}
+.dashboardBG {
+  background-image: url("https://i.postimg.cc/ydpQcqh5/infinite-loop-gif-5.gif");
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.blurDash {
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.4);
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+  backdrop-filter: blur(100.2px);
+  -webkit-backdrop-filter: blur(100.2px);
+  /* border: 1px solid rgba(0, 0, 0, 0.14); */
+}
