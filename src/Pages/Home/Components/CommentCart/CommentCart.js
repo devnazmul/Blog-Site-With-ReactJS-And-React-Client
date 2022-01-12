@@ -20,7 +20,7 @@ export default function CommentCart(props) {
 
     const deleteComment = (id, postId) => {
         if (window.confirm('Are you sure to delete this comment?')) {
-            axios.delete(`http://localhost:5000/comment/${id}`, { postId }).then((res) => {
+            axios.delete(`https://mighty-ocean-43323.herokuapp.com/comment/${id}`, { postId }).then((res) => {
                 if (res) {
                     commentChange ? setCommentChange(false) : setCommentChange(true);
                     console.log(res);
@@ -35,7 +35,7 @@ export default function CommentCart(props) {
     const onSubmit = (data) => {
         console.log('submit');
         axios
-            .post("http://localhost:5000/comment", data)
+            .post("https://mighty-ocean-43323.herokuapp.com/comment", data)
             .then((res) => {
                 if (res.data.insertedId) {
                     console.log(res);

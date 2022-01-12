@@ -9,7 +9,7 @@ const OrderList = () => {
     const [changeData, setChangeData] = useState()
 
     useEffect(() => {
-      axios.get("http://localhost:5000/orders").then((res) => {
+      axios.get("https://mighty-ocean-43323.herokuapp.com/orders").then((res) => {
         setOrders(res.data.orders);
         setIsLoading(false);
       });

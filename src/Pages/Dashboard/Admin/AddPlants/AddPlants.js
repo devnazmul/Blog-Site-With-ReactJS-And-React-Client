@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 const AddPlants = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    axios.post("http://localhost:5000/posts", data).then((res) => {
+    axios.post("https://mighty-ocean-43323.herokuapp.com/posts", data).then((res) => {
       if (res.data.insertedId) {
         alert("Post Added Successfully.");
         reset();

@@ -9,7 +9,7 @@ const AllUserList = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    axios.get("http://localhost:5000/users").then((res) => {
+    axios.get("https://mighty-ocean-43323.herokuapp.com/users").then((res) => {
       setUsers(res.data.users);
       setIsLoading(false);
     });
