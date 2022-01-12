@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Smooch&display=swap");
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.Header {
+  transition: 0.5s;
+}
+.Card {
+  background-color: #fff;
+}
+.Card:hover {
+  box-shadow: 0 0 20px #898989;
+}
+.Card h1 {
+  transition: 0.5s;
+}
+
+.popup {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.purches {
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Header {
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.19);
+
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.2px);
+  -webkit-backdrop-filter: blur(7.2px);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+}
+.logo {
+  font-family: "Smooch", cursive;
+}
+.testimonial {
+  background-image: url("https://i.postimg.cc/gknCjjDp/banner-footer.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.testiCard {
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.2px);
+  -webkit-backdrop-filter: blur(7.2px);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+}
+.purchesCard {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10.2px);
+  -webkit-backdrop-filter: blur(10.2px);
+  border: 1px solid rgba(251, 251, 251, 0.7);
+}

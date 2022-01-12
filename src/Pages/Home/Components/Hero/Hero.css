@@ -1,0 +1,20 @@
+.titleSpeech {
+  transform: translate(-50%, -50%);
+  font-family: "Smooch", cursive;
+  color: #fff;
+}
+.heroDes {
+  transform: translate(-50%, -50%);
+}
+.MainImage {
+  transition: 1s all;
+}
+.MainImage:hover {
+  transform: rotate(25deg);
+}
+.hero {
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
