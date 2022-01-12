@@ -16,7 +16,7 @@ const Plants = (props) => {
   const [isLoading,setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/posts").then((res) => {
+    axios.get("https://mighty-ocean-43323.herokuapp.com/posts").then((res) => {
       setPlants(res.data.posts);
       setIsLoading(false)
     })

@@ -9,7 +9,7 @@ const OrdersTable = (props) => {
   const done = (id) => {
     if (window.confirm('Are you sure this order is done?')) {
       axios
-      .put(`http://localhost:5000/orders/done/${id}`)
+      .put(`https://mighty-ocean-43323.herokuapp.com/orders/done/${id}`)
       .then((res) => {
         setChangeData(Math.random());
       });
@@ -21,7 +21,7 @@ const OrdersTable = (props) => {
   const deleteOrder = (id) => {
     if (window.confirm('Are you sure to delete this order?')) {
       axios
-      .delete(`http://localhost:5000/orders/${id}`)
+      .delete(`https://mighty-ocean-43323.herokuapp.com/orders/${id}`)
       .then((res) => {
         setChangeData(Math.random());
       });

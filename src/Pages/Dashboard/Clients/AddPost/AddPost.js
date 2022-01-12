@@ -13,7 +13,7 @@ const AddPost = () => {
 
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:5000/post", data).then((res) => {
+    axios.post("https://mighty-ocean-43323.herokuapp.com/post", data).then((res) => {
       alert("Post Added Successfully.");
       reset();
     });

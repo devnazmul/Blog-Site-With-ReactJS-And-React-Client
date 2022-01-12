@@ -9,7 +9,7 @@ const PlantTable = (props) => {
     const deletePlant = (id) => {
 
       if (window.confirm('Are you sure to delete this plant?')) {
-        axios.delete(`http://localhost:5000/posts/${id}`).then((res) => {
+        axios.delete(`https://mighty-ocean-43323.herokuapp.com/posts/${id}`).then((res) => {
             setChangeData(Math.random());
         });
       } else {

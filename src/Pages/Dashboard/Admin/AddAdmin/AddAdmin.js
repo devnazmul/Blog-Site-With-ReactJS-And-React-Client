@@ -6,7 +6,7 @@ const AddAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
-    axios.put("http://localhost:5000/user/admin", data).then((res) => {
+    axios.put("https://mighty-ocean-43323.herokuapp.com/user/admin", data).then((res) => {
         alert("Admin Added Successfully.");
         reset();
     });
