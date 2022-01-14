@@ -74,3 +74,6 @@ code {
   -webkit-backdrop-filter: blur(10.2px);
   border: 1px solid rgba(251, 251, 251, 0.7);
 }
+.footer {
+  color: #fff;
+}

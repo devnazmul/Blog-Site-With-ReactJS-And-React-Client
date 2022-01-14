@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { MdDelete } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 
 const PostTable = (props) => {
   const setChangeData = props.setChangeData;
@@ -28,7 +29,12 @@ const PostTable = (props) => {
             <img className="h-10 w-10 object-contain" src={blogImageURL} alt={title} />
           </div>
           <div className="ml-4 text-left">
+          <NavLink
+            to={`/purchase/${_id}`}
+          >
             <div className="text-sm font-medium text-gray-900">{title}</div>
+          </NavLink>
+            
             <div className="text-sm text-gray-500">
               {blogContent.slice(0, 30)}...
             </div>

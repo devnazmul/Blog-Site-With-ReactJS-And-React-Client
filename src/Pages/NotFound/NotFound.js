@@ -2,13 +2,13 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 const NotFound = () => {
   return (
-    <div className="bg-gray-100 h-screen justify-center pt-28">
+    <div className="bg-yellow-500 h-screen justify-center pt-28">
       <center className="mt-24 m-auto">
         <div className=" tracking-widest mt-4">
-          <span className="text-gray-500 text-6xl block">
+          <span className="text-gray-900 text-6xl block">
             <span>4 0 4</span>
           </span>
-          <span className="text-gray-500 text-xl">
+          <span className="text-gray-900 text-xl">
             Sorry, We couldn't find what you are looking for!
           </span>
         </div>
@@ -16,7 +16,7 @@ const NotFound = () => {
       <center className="mt-6">
         <NavLink
           to="/home"
-          className="text-gray-500 font-mono text-xl bg-gray-200 p-3 rounded-md hover:shadow-md"
+          className="text-white font-mono text-xl bg-gray-900 p-3 rounded-md hover:shadow-md"
         >
           Go back{" "}
         </NavLink>

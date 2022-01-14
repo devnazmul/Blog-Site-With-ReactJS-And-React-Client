@@ -14,7 +14,7 @@ const PlostList = () => {
       setPlants(res.data.posts);
       setIsLoading(false);
     });
-  }, [changeData]);
+  }, [changeData,user.email]);
 
   return (
     <div className="flex flex-col">

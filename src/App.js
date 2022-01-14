@@ -23,6 +23,10 @@ function App() {
           <PrivateRoute path="/dashboard">
               <Dashboard />
             </PrivateRoute>
+          {/* <PrivateRoute path="/dashboard/purchase/:_id">
+          <Purchase />
+
+            </PrivateRoute> */}
             
             <Route exact path="/purchase/:_id">
               <Purchase />

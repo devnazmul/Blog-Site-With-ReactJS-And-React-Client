@@ -1,18 +1,18 @@
 import axios from 'axios';
+import moment from 'moment';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../../hooks/useAuth';
 
+
 const AddPost = () => {
   const { register, handleSubmit, reset } = useForm();
 
-
   const { user } = useAuth();
 
-
-
-
   const onSubmit = (data) => {
+    data.postComments=0
+    data.timestamp=moment(new Date()).format('DD/MM/YYYY, h:mm:ss a');
     axios.post("https://mighty-ocean-43323.herokuapp.com/post", data).then((res) => {
       alert("Post Added Successfully.");
       reset();
