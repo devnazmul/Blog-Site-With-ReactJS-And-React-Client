@@ -4,13 +4,13 @@ module.exports = {
   theme: {
     extend: {
       textColor:{
-        'textPrimary':'#47A359',
+        'textPrimary':'#F59E0B',
       },
       backgroundColor:{
-        'bgPrimary':'#47A359',
+        'bgPrimary':'#F59E0B',
       },
       borderColor:{
-        'borderPrimary':'#47A359'
+        'borderPrimary':'#F59E0B'
       }
     },
   },

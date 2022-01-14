@@ -5,7 +5,6 @@ import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
   const { logOut, user } = useAuth();
-  const [bgClass, setBgClass] = useState("bg-transparent");
   const [logoClass, setLogoClass] = useState("text-white");
 
   let location = useLocation();
@@ -31,11 +30,9 @@ const Header = () => {
   window.addEventListener("scroll", function () {
     let scroll = window.scrollY;
     if (scroll <= 50) {
-      setBgClass("bg-transparent");
       setLogoClass("text-white")
     } else {
-      setBgClass("bg-white shadow-lg");
-      setLogoClass("text-green")
+      setLogoClass("text-black")
     }
   });
 
@@ -43,7 +40,7 @@ const Header = () => {
     <div className={`Header z-40 text-black body-font h-auto fixed w-full p-5 `} >
       <div className="mx-auto block md:flex flex-wrap flex-row items-center">
         <div className='flex justify-between items-center'>
-          <div className="flex items-center  text-3xl mb-4 md:mb-0">
+          <div className="flex items-center text-3xl mb-4 md:mb-0">
             <NavLink to='/' className={`${logoClass} logo cursor-pointer flex justify-center items-center`}>
               <img
               className="h-12 mr-3"
@@ -110,7 +107,7 @@ const Header = () => {
           {user.email && (
             <NavLink
               to="/"
-              className="bg-gradient-to-tr mt-5 to-green-800 from-green-300  mx-auto rounded-full px-1 py-1 flex justify-between items-center"
+              className="cursor-pointer text-white bg-gradient-to-tr mt-5 to-green-800 from-green-300  mx-auto rounded-full px-1 py-1 flex justify-between items-center"
             >
               <span className="text-white ml-2 block">
                 {user.displayName || user.email}
@@ -173,7 +170,7 @@ const Header = () => {
           {user.email && (
           <div
             to="/"
-            className="lg:bg-gradient-to-tr lg:to-green-800 lg:from-green-300 bg-transparent rounded-full px-1 py-1 flex justify-between items-center"
+            className="lg:bg-gradient-to-tr lg:to-green-800 lg:from-green-300 bg-transparent rounded-full px-1 py-1 flex justify-between items-center text-white cursor-pointer"
           >
             <span className="ml-2 hidden lg:block">
               {user.displayName || user.email}

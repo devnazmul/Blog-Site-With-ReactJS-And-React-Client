@@ -17,10 +17,12 @@ export default function CommentCart(props) {
     const setCommentChange = props.setCommentChange;
 
     const { user } = useAuth();
+    const postComments = props.postComments; 
 
+  
     const deleteComment = (id, postId) => {
         if (window.confirm('Are you sure to delete this comment?')) {
-            axios.delete(`https://mighty-ocean-43323.herokuapp.com/comment/${id}`, { postId }).then((res) => {
+            axios.delete(`https://source.unsplash.com//comment/${id}*${postId}*${postComments}`).then((res) => {
                 if (res) {
                     commentChange ? setCommentChange(false) : setCommentChange(true);
                     console.log(res);
@@ -51,7 +53,7 @@ export default function CommentCart(props) {
     }
 
     return (
-        <div className='text-left  my-2 px-10 py-5'>
+        <div className='text-left  my-2 px-10 pl-10 py-5'>
             <div className='flex items-start'>
                 <img className='w-12 rounded-full border-2 border-gray-300 mr-3' src={imgUrl} alt="name" />
                 <div className='w-full'>
@@ -69,7 +71,7 @@ export default function CommentCart(props) {
                                         <BsPencilSquare className='text-xl' />
                                     </button> */}
 
-                                    <button title='delete' onClick={() => deleteComment(_id, 'postId')}>
+                                    <button title='delete' onClick={() => deleteComment(_id, postId)}>
                                         <BsTrashFill className='text-xl' />
                                     </button>
                                 </>
@@ -79,10 +81,10 @@ export default function CommentCart(props) {
                     </div>
                 </div>
             </div>
+
             <form onSubmit={handleSubmit(onSubmit)} className={`${!isReplaing && "hidden"} w-full lg:mt-0 flex justify-start items-start`} >
                 <div className="text-left text-black purchesCard rounded-lg w-full px-5 flex flex-col relative z-10  shadow-xl">
                     <div className="">
-
                         <div className="relative mb-4 mr-1 w-full flex">
                             {user.photoURL ? (
                                 <input
@@ -165,6 +167,9 @@ export default function CommentCart(props) {
                     </div>
                 </div>
             </form>
+            <div>
+
+            </div>
         </div>
     )
 }
