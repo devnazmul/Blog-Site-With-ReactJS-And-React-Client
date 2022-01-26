@@ -1,44 +1,60 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { BsFillReplyFill, BsTrashFill } from 'react-icons/bs';
 import { RiSendPlane2Line } from 'react-icons/ri';
 import useAuth from '../../../../hooks/useAuth';
+import LoadingAnimation from '../Loading/LoadingAnimation';
 
 export default function CommentCart(props) {
+    const { _id, imgUrl, name, commentText, timestamp, userEmail, parentId } = props.comment;
 
     const [isReplaing, setIsReplaing] = useState(false)
+    const [commentIsLoading, setCommentIsLoading] = useState(true);
+    const [comments, setComments] = useState([]);
+
     const { register, handleSubmit, reset } = useForm();
 
-    const { _id, imgUrl, name, comment, timestamp, userEmail } = props.comment;
 
     const commentChange = props.commentChange;
     const postId = props.postId;
     const setCommentChange = props.setCommentChange;
+    const postComments = props.postComments;
 
     const { user } = useAuth();
-    const postComments = props.postComments; 
 
-  
+    useEffect(() => {
+        axios
+            .get(`http://localhost:5000/comments`)
+            .then((res) => {
+                setComments(res.data.comments.reverse());
+                setCommentIsLoading(false);
+            });
+    }, [commentChange]);
+
+
     const deleteComment = (id, postId) => {
-        if (window.confirm('Are you sure to delete this comment?')) {
-            axios.delete(`https://source.unsplash.com//comment/${id}*${postId}*${postComments}`).then((res) => {
-                if (res) {
-                    commentChange ? setCommentChange(false) : setCommentChange(true);
-                    console.log(res);
-                }
-            })
-        } else {
-            console.log('canceled');
-        }
+        // if (window.confirm('Are you sure to delete this comment?')) {
+        //     axios.delete(`https://source.unsplash.com//comment/${id}*${postId}*${postComments}`).then((res) => {
+        //         if (res) {
+        //             commentChange ? setCommentChange(false) : setCommentChange(true);
+        //             console.log(res);
+        //         }
+        //     })
+        // } else {
+        //     console.log('canceled');
+        // }
+        console.log('delete');
     }
 
 
     const onSubmit = (data) => {
-        console.log('submit');
+        data.timestamp = moment(new Date()).format('DD/MM/YYYY, h:mm:ss a')
+        console.log(data);
         axios
-            .post("https://mighty-ocean-43323.herokuapp.com/comment", data)
+            .post("http://localhost:5000/comment", data)
             .then((res) => {
+
                 if (res.data.insertedId) {
                     console.log(res);
                     commentChange ? setCommentChange(false) : setCommentChange(true)
@@ -53,16 +69,19 @@ export default function CommentCart(props) {
     }
 
     return (
-        <div className='text-left  my-2 px-10 pl-10 py-5'>
+        <div className='text-left my-0 pl-12 py-5'>
             <div className='flex items-start'>
-                <img className='w-12 rounded-full border-2 border-gray-300 mr-3' src={imgUrl} alt="name" />
-                <div className='w-full'>
-                    <h1 className='text-xl font-medium'>{name}</h1>
-                    <span className='text-gray-300 text-sm'>{timestamp}</span>
-                    <p className=' mt-3'>{comment}</p>
-                    <div className='w-1/12 mt-3 flex justify-between'>
-                        <button title='replay' onClick={toggleReplay}>
-                            <BsFillReplyFill className='text-xl' />
+                <img className='w-10 rounded-full border-2 border-gray-300 mr-2 shadow-sm' src={imgUrl} alt="name" />
+                <div className='w-full'> 
+                    <div className='bg-gray-100 px-5 rounded-xl rounded-tl-none py-2 shadow-md'>
+                        <h1 className='font-medium my-0 py-0'>{name}</h1>
+                        <span className='text-gray-400 text-xs my-0 py-0'>{timestamp}</span>
+                        <p className=' mt-0'>{commentText}</p>
+                    </div>
+                    
+                    <div className='w-1/12 ml-5 mt-2 flex justify-between'>
+                        <button title='replay' className='text-textPrimary text-xs font-semibold mr-5' onClick={toggleReplay}>
+                            Replay
                         </button>
                         {
                             (userEmail === user.email) && (
@@ -71,8 +90,8 @@ export default function CommentCart(props) {
                                         <BsPencilSquare className='text-xl' />
                                     </button> */}
 
-                                    <button title='delete' onClick={() => deleteComment(_id, postId)}>
-                                        <BsTrashFill className='text-xl' />
+                                    <button title='delete' className='text-textPrimary text-xs font-semibold' onClick={() => deleteComment(_id, postId)}>
+                                        Delete
                                     </button>
                                 </>
                             )
@@ -134,27 +153,22 @@ export default function CommentCart(props) {
                                         {...register("name", { required: true })}
                                         value={`${user.displayName}`}
                                         type="text"
-                                        required
-                                        id="name"
-                                        name="name"
                                         className="hidden"
                                     />
                                     <input
-                                        {...register("comment", { required: true })}
+                                        {...register("commentText", { required: true })}
                                         type="text"
-                                        required
                                         placeholder="add replay"
-                                        id="comment"
-                                        name="comment"
                                         className="w-full mt-5 bg-gray-100 rounded-full border-2 border-gray-200 focus:border-gray-300 focus:ring-green-200 text-base outline-none text-gray-500 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                                     />
                                     <input
-                                        id='sub'
+                                        id={parentId || 'sub'}
                                         type="submit"
                                         value='Submit'
                                         className="hidden"
                                     />
-                                    <label htmlFor='sub' className='cursor-pointer mt-5 outline-none flex items-center justify-center'>
+
+                                    <label htmlFor={parentId || 'sub'} className='cursor-pointer mt-5 outline-none flex items-center justify-center'>
                                         <RiSendPlane2Line className='text-3xl ml-3 text-gray-400 duration-500 hover:text-textPrimary ' />
                                     </label>
                                 </>
@@ -168,7 +182,33 @@ export default function CommentCart(props) {
                 </div>
             </form>
             <div>
-
+                {
+                    !commentIsLoading ?
+                        ((comments.length !== 0) && (
+                            <>
+                                {
+                                    comments.map(
+                                        (comment) => (<>
+                                            {comment.parentId === _id && (
+                                                <CommentCart
+                                                    key={comment._id}
+                                                    postComments={postComments}
+                                                    postId={postId}
+                                                    setCommentChange={setCommentChange}
+                                                    commentChange={commentChange}
+                                                    comment={comment}
+                                                />
+                                            )
+                                            }
+                                        </>
+                                        )
+                                    )
+                                }
+                            </>
+                        ))
+                        :
+                        <LoadingAnimation />
+                }
             </div>
         </div>
     )

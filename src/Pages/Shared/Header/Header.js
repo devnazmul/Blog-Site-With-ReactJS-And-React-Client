@@ -127,14 +127,14 @@ const Header = () => {
         <nav className="h-full md:ml-auto hidden md:flex flex-wrap items-center text-base justify-center">
           <NavLink
             to="/home"
-            activeClassName="font-semibold text-green-700"
+            activeClassName="font-semibold text-textPrimary"
             className={`mr-5 text-white hover:text-gray-500`}
           >
             Home
           </NavLink>
           <NavLink
             to="/plants"
-            activeClassName="font-semibold text-green-700"
+            activeClassName="font-semibold text-textPrimary"
             className={`mr-5 text-white hover:text-gray-500`}
           >
             All Posts
@@ -145,7 +145,7 @@ const Header = () => {
             <span>
               <NavLink
                 to="/dashboard"
-                activeClassName="font-semibold text-green-700"
+                activeClassName="font-semibold text-textPrimary"
                 className={`mr-5 text-white hover:text-gray-500`}
               >
                 Dashboard
@@ -161,7 +161,7 @@ const Header = () => {
           ) : (
             <NavLink
               to="/login"
-              activeClassName="font-semibold text-green-700"
+              activeClassName="font-semibold text-textPrimary"
               className={`mr-5 text-white hover:text-gray-500`}
             >
               Log In

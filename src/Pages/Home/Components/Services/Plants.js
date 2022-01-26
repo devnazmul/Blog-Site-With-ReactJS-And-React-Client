@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import Header from "../../../Shared/Header/Header";
 import LoadingAnimation from "../Loading/LoadingAnimation";
 import Card from "./Card/Card";
@@ -9,10 +8,10 @@ const Plants = (props) => {
   const numberOfCards = props.numberOfCards;
   const [plants, setPlants] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-const history = useHistory();
+
 
   useEffect(() => {
-    axios.get("https://mighty-ocean-43323.herokuapp.com/posts").then((res) => {
+    axios.get("http://localhost:5000/posts").then((res) => {
       setPlants(res.data.posts);
       setIsLoading(false)
     })

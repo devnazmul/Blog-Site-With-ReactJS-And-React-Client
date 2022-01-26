@@ -1,13 +1,7 @@
 import axios from "axios";
 import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signOut,
-  onAuthStateChanged,
-  updateProfile,
+    createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup,
+    signOut, updateProfile
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 
@@ -20,7 +14,7 @@ const useFirebase = () => {
 
 
   useEffect(() => {
-    axios.get(`https://mighty-ocean-43323.herokuapp.com/users/isAdmin/${user.email}`).then((res) => {
+    axios.get(`http://localhost:5000/users/isAdmin/${user.email}`).then((res) => {
       setAdmin(res.data.admin);
     });
   }, [user.email]);
@@ -109,7 +103,7 @@ const useFirebase = () => {
   const saveUser = (newUser,method) => {
     if (method === 'POST') {
       axios
-      .post("https://mighty-ocean-43323.herokuapp.com/users", newUser)
+      .post("http://localhost:5000/users", newUser)
       .then((res) => {
         if (res.data.insertedId) {
           console.log(res);
@@ -117,7 +111,7 @@ const useFirebase = () => {
       });
     } else {
       axios
-      .put("https://mighty-ocean-43323.herokuapp.com/users", newUser)
+      .put("http://localhost:5000/users", newUser)
       .then((res) => {
         if (res.data.insertedId) {
           console.log(res);

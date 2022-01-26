@@ -9,7 +9,7 @@ const PostTable = (props) => {
 
   const deletePlant = (id) => {
     if (window.confirm('Are you sure to delete this plant?')) {
-      axios.delete(`https://mighty-ocean-43323.herokuapp.com/post/${id}`).then((res) => {
+      axios.delete(`http://localhost:5000/post/${id}`).then((res) => {
         if (res) {
           changeData ? setChangeData(false) : setChangeData(true)
         }

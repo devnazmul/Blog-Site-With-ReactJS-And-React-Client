@@ -10,7 +10,7 @@ const PlostList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const {user} = useAuth();
   useEffect(() => {
-    axios.get(`https://mighty-ocean-43323.herokuapp.com/posts/${user.email}`).then((res) => {
+    axios.get(`http://localhost:5000/posts/${user.email}`).then((res) => {
       setPlants(res.data.posts);
       setIsLoading(false);
     });

@@ -33,7 +33,7 @@ const Purchase = () => {
 
   useEffect(() => {
     axios
-      .get(`https://mighty-ocean-43323.herokuapp.com/post/${_id}`)
+      .get(`http://localhost:5000/post/${_id}`)
       .then((res) => {
         setPost(res.data);
       });
@@ -41,7 +41,7 @@ const Purchase = () => {
 
   useEffect(() => {
     axios
-      .get(`https://mighty-ocean-43323.herokuapp.com/comments`)
+      .get(`http://localhost:5000/comments`)
       .then((res) => {
         const com = res.data.comments;
         const comnts = filterComment(com, _id);
@@ -49,17 +49,21 @@ const Purchase = () => {
         setCommentIsLoading(false);
       });
   }, [commentChange]);
-  console.log('out:',post.postComments);
+
+
   const onSubmit = (data) => {
-data.postComments = post.postComments
-console.log('in:',data.postComments);
-    data.timestamp = moment(new Date()).format('DD/MM/YYYY, h:mm:ss a');
+    data.postComments = post.postComments;
+    data.parentId = null;
+    data.timestamp = moment(new Date()).format('DD/MM/YYYY, h:mm:ss a')
+
     setIsDisableComment(true)
+
     axios
-      .post("https://source.unsplash.com//comment", data)
+      .post("http://localhost:5000/comment", data)
       .then((res) => {
+        console.log(res);
         if (res.data) {
-           if (commentChange) {
+          if (commentChange) {
             setCommentChange(false)
             setIsDisableComment(false)
             reset();
@@ -75,10 +79,10 @@ console.log('in:',data.postComments);
   };
 
   const increaseLike = (id, data) => {
-    
+
     setIsDisableLike(true)
     axios
-      .put(`https://mighty-ocean-43323.herokuapp.com/postLike/${id}`, data)
+      .put(`http://localhost:5000/postLike/${id}`, data)
       .then((res) => {
         if (res) {
           if (commentChange) {
@@ -94,7 +98,6 @@ console.log('in:',data.postComments);
   }
 
 
-console.log(isDisableComment);
   return (
     <>
       <Header />
@@ -118,7 +121,7 @@ console.log(isDisableComment);
                           <p className="text-gray-400 text-sm w-full mt-2">By {post.author}</p>
                           <p className="text-white text-sm w-56 mt-2 bg-yellow-500 rounded-full px-2 py-1 text-center">{post.timestamp.split(',')[0]}</p>
                         </div>
-                        
+
                       </h1>
                       {
                         post.likedUEmail.includes(user.email) ?
@@ -177,15 +180,15 @@ console.log(isDisableComment);
                     value={user.displayName}
                     {...register("name", { required: true })}
                   />
-                  
+
                   <textarea
                     className='w-full my-1 py-2 px-2 bg-gray-100 rounded-md border border-borderPrimary'
-                    {...register("comment", { required: true })}
+                    {...register("commentText", { required: true })}
                     placeholder='Write'
                   />
-                  {!isDisableComment ?  (
+                  {!isDisableComment ? (
                     <input className='cursor-pointer w-full mt-1 bg-bgPrimary text-white py-3 rounded-md' type="submit" />
-                  ):(
+                  ) : (
                     <input disabled className='cursor-pointer w-full mt-1 bg-gray-100 text-gray-400 py-3 rounded-md' type="submit" />
                   )}
                 </div>
@@ -215,7 +218,24 @@ console.log(isDisableComment);
                 :
                 <>
                   {
-                    comments.map((comment) => <CommentCart key={comment._id} postComments={post.postComments} postId={post._id} replaies={[]} setCommentChange={setCommentChange} commentChange={commentChange} comment={comment} />)
+                    comments.map(
+                      (comment) => (
+                        <>
+                          {
+                            comment.parentId === null && (
+                              <CommentCart
+                                key={comment._id}
+                                postComments={post.postComments}
+                                postId={post._id}
+                                setCommentChange={setCommentChange}
+                                commentChange={commentChange}
+                                comment={comment}
+                              />)
+                          }
+                        </>
+
+                      )
+                    )
                   }
                 </>
               )

@@ -2,12 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 
-
-
-
-
 export default function Card(props) {
-  const { _id, title, blogImageURL, likes, author, timestamp, postComments } = props.plant;
+  const { _id, title, blogImageURL, likes, timestamp, postComments } = props.plant;
+  
   const numberOfCards = props.numberOfCards; 
  
   return (
@@ -35,7 +32,7 @@ export default function Card(props) {
           <div className="flex justify-between items-center mb-5">
             <p className="text-gray-300">{likes} Like</p>
             {/* <p className="text-gray-300">By {author}</p> */}
-            <p className="text-gray-300">{postComments} Comments</p>
+            <p className="text-gray-300">{postComments === null ? '0' : postComments} Comments</p>
           </div>
           <NavLink
             to={`/purchase/${_id}`}

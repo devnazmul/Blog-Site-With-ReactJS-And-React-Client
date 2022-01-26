@@ -8,6 +8,7 @@ import Login from "./Pages/Login/Login";
 import NotFound from "./Pages/NotFound/NotFound";
 import Purchase from "./Pages/Purchase/Purchase";
 import SignUp from "./Pages/SignUp/SignUp";
+import UserProfile from "./Pages/UserProfile/UserProfile";
 import PrivateRoute from "./Private/PrivateRoute";
 import ScrollToTop from "./ScrollToTop/ScrollToTop";
 
@@ -30,6 +31,10 @@ function App() {
             
             <Route exact path="/purchase/:_id">
               <Purchase />
+            </Route>
+
+            <Route exact path="/user_profile/:_id">
+              <UserProfile />
             </Route>
 
             <Route exact path="/">

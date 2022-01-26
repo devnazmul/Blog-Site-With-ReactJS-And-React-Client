@@ -12,16 +12,11 @@ import {
   NavLink, Route, Switch, useHistory, useRouteMatch
 } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import AdminRoute from "../../Private/AdminRoute";
 import ScrollToTop from "../../ScrollToTop/ScrollToTop";
-import AddAdmin from "./Admin/AddAdmin/AddAdmin";
-import AddPlants from "./Admin/AddPlants/AddPlants";
-import AllUserList from "./Admin/AllUsers/AllUserLinst";
-import OrderList from "./Admin/OrdersList/OrderList";
-import PlantList from "./Admin/PlantList/PlantList";
 import AddPost from "./Clients/AddPost/AddPost";
 import PlostList from "./Clients/PlostList/PlostList";
 import "./Dashboard.css";
+
 
 
 const Dashboard = () => {
@@ -132,9 +127,9 @@ const Dashboard = () => {
               <ScrollToTop />
               <Switch>
                 <Route exact path={path}>
-                  <PlantList />
+                <PlostList />
                 </Route>
-                <AdminRoute path={`${path}/add_plant`}>
+                {/* <AdminRoute path={`${path}/add_plant`}>
                   <AddPlants />
                 </AdminRoute>
                 <AdminRoute path={`${path}/plants_list`}>
@@ -148,7 +143,7 @@ const Dashboard = () => {
                 </AdminRoute>
                 <AdminRoute path={`${path}/all_users`}>
                   <AllUserList />
-                </AdminRoute>
+                </AdminRoute> */}
               </Switch>
             </div>
           </div>
