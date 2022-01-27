@@ -35,7 +35,7 @@ const Dashboard = () => {
             <aside className="dashboard  bg-bgPrimary mr-1 h-full block w-14 md:w-1/3 lg:w-1/4 xl:w-1/5 rounded-r-lg py-2 pl-2  top-2 bottom-2 left-2">
               <div
                 title={user.displayName}
-                className="w-full flex my-2  md:pr-20 cursor-pointer bg-bgPrimary items-center text-white py-3 rounded-l-lg"
+                className="w-full flex my-2  md:pr-20 cursor-pointer bg-bgPrimary items-center flex-col text-white py-3 rounded-l-lg"
               >
                 <img
                   className="w-10 h-auto rounded-full mr-3"

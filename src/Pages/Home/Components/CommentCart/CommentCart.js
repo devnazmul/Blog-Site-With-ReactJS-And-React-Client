@@ -25,7 +25,7 @@ export default function CommentCart(props) {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/comments`)
+            .get(`https://mighty-ocean-43323.herokuapp.com/comments`)
             .then((res) => {
                 setComments(res.data.comments.reverse());
                 setCommentIsLoading(false);
@@ -52,7 +52,7 @@ export default function CommentCart(props) {
         data.timestamp = moment(new Date()).format('DD/MM/YYYY, h:mm:ss a')
         console.log(data);
         axios
-            .post("http://localhost:5000/comment", data)
+            .post("https://mighty-ocean-43323.herokuapp.com/comment", data)
             .then((res) => {
 
                 if (res.data.insertedId) {

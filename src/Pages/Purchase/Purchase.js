@@ -33,7 +33,7 @@ const Purchase = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/post/${_id}`)
+      .get(`https://mighty-ocean-43323.herokuapp.com/post/${_id}`)
       .then((res) => {
         setPost(res.data);
       });
@@ -41,7 +41,7 @@ const Purchase = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/comments`)
+      .get(`https://mighty-ocean-43323.herokuapp.com/comments`)
       .then((res) => {
         const com = res.data.comments;
         const comnts = filterComment(com, _id);
@@ -59,7 +59,7 @@ const Purchase = () => {
     setIsDisableComment(true)
 
     axios
-      .post("http://localhost:5000/comment", data)
+      .post("https://mighty-ocean-43323.herokuapp.com/comment", data)
       .then((res) => {
         console.log(res);
         if (res.data) {
@@ -82,7 +82,7 @@ const Purchase = () => {
 
     setIsDisableLike(true)
     axios
-      .put(`http://localhost:5000/postLike/${id}`, data)
+      .put(`https://mighty-ocean-43323.herokuapp.com/postLike/${id}`, data)
       .then((res) => {
         if (res) {
           if (commentChange) {

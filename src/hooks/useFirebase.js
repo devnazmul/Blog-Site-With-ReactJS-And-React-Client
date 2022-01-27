@@ -14,7 +14,7 @@ const useFirebase = () => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/users/isAdmin/${user.email}`).then((res) => {
+    axios.get(`https://mighty-ocean-43323.herokuapp.com/users/isAdmin/${user.email}`).then((res) => {
       setAdmin(res.data.admin);
     });
   }, [user.email]);
@@ -103,7 +103,7 @@ const useFirebase = () => {
   const saveUser = (newUser,method) => {
     if (method === 'POST') {
       axios
-      .post("http://localhost:5000/users", newUser)
+      .post("https://mighty-ocean-43323.herokuapp.com/users", newUser)
       .then((res) => {
         if (res.data.insertedId) {
           console.log(res);
@@ -111,7 +111,7 @@ const useFirebase = () => {
       });
     } else {
       axios
-      .put("http://localhost:5000/users", newUser)
+      .put("https://mighty-ocean-43323.herokuapp.com/users", newUser)
       .then((res) => {
         if (res.data.insertedId) {
           console.log(res);
