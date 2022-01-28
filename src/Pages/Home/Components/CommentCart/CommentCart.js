@@ -66,10 +66,10 @@ export default function CommentCart(props) {
   };
 
   return (
-    <div className="text-left my-0 pl-12 py-5">
+    <div className="text-left my-0 pl-5 md:pl-12 py-5">
       <div className="flex items-start">
         <img
-          className="w-10 rounded-full border-2 border-gray-300 mr-2 shadow-sm"
+          className="w-8 rounded-full border-2 border-gray-300 mr-2 shadow-sm"
           src={imgUrl}
           alt="name"
         />
@@ -109,9 +109,8 @@ export default function CommentCart(props) {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className={`${
-          !isReplaing && "hidden"
-        } w-full lg:mt-0 flex justify-start items-start`}
+        className={`${!isReplaing && "hidden"
+          } w-full lg:mt-0 flex justify-start items-start`}
       >
         <div className="text-left text-black purchesCard rounded-lg w-full px-5 flex flex-col relative z-10  shadow-xl">
           <div className="">
