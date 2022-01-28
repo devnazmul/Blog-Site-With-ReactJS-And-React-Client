@@ -35,10 +35,10 @@ const Dashboard = () => {
             <aside className="dashboard  bg-bgPrimary mr-1 h-full block w-14 md:w-1/3 lg:w-1/4 xl:w-1/5 rounded-r-lg py-2 pl-2  top-2 bottom-2 left-2">
               <div
                 title={user.displayName}
-                className="w-full flex my-2  md:pr-20 cursor-pointer bg-bgPrimary items-center flex-col text-white py-3 rounded-l-lg"
+                className="w-full my-2 md:pr-20 cursor-pointer bg-bgPrimary items-center flex flex-col text-white py-3 rounded-l-lg"
               >
                 <img
-                  className="w-10 h-auto rounded-full mr-3"
+                  className="w-10 rounded-full"
                   src={
                     user.photoURL ||
                     "https://i.ibb.co/fScLdY0/pic-1171831236-1.png"
@@ -152,26 +152,26 @@ const Dashboard = () => {
       ) : (
         <div className="dashboardBG">
           <div className="flex h-screen blurDash">
-            <aside className="dashboard  bg-bgPrimary mr-1 h-full block w-14 md:w-1/3 lg:w-1/4 xl:w-1/5 rounded-r-lg py-2 pl-2  top-2 bottom-2 left-2">
+            <aside className="dashboard bg-bgPrimary mr-1 h-full block w-14 md:w-1/3 lg:w-1/4 xl:w-1/5 rounded-r-lg py-2 pl-2  top-2 bottom-2 left-2">
               <div
                 title={user.displayName}
-                className="w-full flex my-2  md:pr-20 cursor-pointer bg-bgPrimary items-center text-white py-3 rounded-l-lg"
+                className="w-full flex my-2 justify-center cursor-pointer flex-col bg-bgPrimary items-center text-white py-3 rounded-l-lg"
               >
                 <img
-                  className="w-10 h-auto rounded-full mr-3"
+                  className="w-20 h-auto mb-3 rounded-full shadow-md"
                   src={
                     user.photoURL ||
                     "https://i.ibb.co/fScLdY0/pic-1171831236-1.png"
                   }
                   alt=""
                 />
-                <span className=" hidden md:block">{user.displayName}</span>
+                <span className=" hidden md:block text-3xl text-black">{user.displayName}</span>
               </div>
 
               <button
                 title="My Orders"
                 onClick={ogHome}
-                className="w-full flex my-2 md:px-5 md:pr-20  items-center text-white py-3 rounded-l-lg hover:shadow-md relative hover:text-textPrimary dashboardLink hover:bg-white"
+                className="w-full flex my-2 md:px-5 md:pr-20  items-center text-black py-3 rounded-l-lg hover:shadow-md relative hover:text-textPrimary dashboardLink hover:bg-white"
               >
                 <AiFillBackward className="ml-3 text-xl" />{" "}
                 <span className="ml-1 hidden md:block w-full">Go Home</span>
@@ -179,7 +179,7 @@ const Dashboard = () => {
               <NavLink
                 title="My Orders"
                 to={`${url}/post_list`}
-                className="w-full flex my-2 md:px-5 md:pr-20  items-center text-white py-3 rounded-l-lg  "
+                className="w-full flex my-2 md:px-5 md:pr-20 hover:bg-white items-center text-black py-3 rounded-l-lg  "
                 activeClassName="shadow-md relative dashboardLink w-full block py-3 bg-white text-textPrimary"
               >
                 <BsStackOverflow className="ml-3 text-xl" />{" "}
@@ -188,7 +188,7 @@ const Dashboard = () => {
               <NavLink
                 title="My Orders"
                 to={`${url}/add_post`}
-                className="w-full flex my-2 md:px-5 md:pr-20  items-center text-white py-3 rounded-l-lg  "
+                className="w-full flex my-2 md:px-5 md:pr-20 hover:bg-white items-center text-black py-3 rounded-l-lg  "
                 activeClassName="shadow-md relative dashboardLink w-full block py-3 bg-white text-textPrimary"
               >
                 <IoMdAdd className="ml-3 text-xl" />{" "}
@@ -200,7 +200,7 @@ const Dashboard = () => {
               <button
                 title="LogOut"
                 onClick={logOut}
-                className="w-full flex my-2 md:px-5 md:pr-20  items-center  py-3 rounded-l-lg font-bold text-red-700"
+                className="w-full flex my-2 md:px-5 md:pr-20 hover:bg-white items-center text-red-700 font-medium py-3 rounded-l-lg "
               >
                 <CgLogOut className="ml-3 text-xl" />{" "}
                 <span className="ml-1 hidden md:block w-full text-left">LogOut</span>

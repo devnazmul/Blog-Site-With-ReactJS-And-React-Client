@@ -3,7 +3,8 @@
   z-index: 100;
 }
 .dashboardBG {
-  background-image: url("https://i.postimg.cc/ydpQcqh5/infinite-loop-gif-5.gif");
+  background-image: url("https://i.ibb.co/v192hDn/tumblr-nt3x43-C7m-L1rat0tqo1-500.gif");
+  background-size: cover;
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
@@ -12,7 +13,7 @@
   /* From https://css.glass */
   background: rgba(0, 0, 0, 0.4);
   /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
-  backdrop-filter: blur(100.2px);
-  -webkit-backdrop-filter: blur(100.2px);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
   /* border: 1px solid rgba(0, 0, 0, 0.14); */
 }

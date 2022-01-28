@@ -107,7 +107,7 @@ const Header = () => {
           {user.email && (
             <NavLink
               to="/"
-              className="cursor-pointer text-white bg-gradient-to-tr mt-5 to-green-800 from-green-300  mx-auto rounded-full px-1 py-1 flex justify-between items-center"
+              className="cursor-pointer text-white bg-gradient-to-tr to-yellow-800 from-yellow-400 hover:from-yellow-800 hover:to-yellow-400 mx-auto rounded-full px-1 py-1 flex justify-between items-center"
             >
               <span className="text-white ml-2 block">
                 {user.displayName || user.email}
@@ -170,7 +170,7 @@ const Header = () => {
           {user.email && (
           <div
             to="/"
-            className="lg:bg-gradient-to-tr lg:to-green-800 lg:from-green-300 bg-transparent rounded-full px-1 py-1 flex justify-between items-center text-white cursor-pointer"
+            className="lg:bg-gradient-to-tr lg:to-yellow-800 lg:from-yellow-400 hover:from-yellow-800 hover:to-yellow-400 bg-transparent rounded-full px-1 py-1 flex justify-between items-center text-white cursor-pointer"
           >
             <span className="ml-2 hidden lg:block">
               {user.displayName || user.email}

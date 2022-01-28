@@ -7,6 +7,7 @@ import useAuth from '../../../../hooks/useAuth';
 const AddPost = () => {
   const { register, handleSubmit, reset } = useForm();
   const { user } = useAuth();
+  
   const onSubmit = (data) => {
     data.postComments = 0
     data.timestamp=moment(new Date()).format('DD/MM/YYYY, h:mm:ss a');
@@ -17,7 +18,7 @@ const AddPost = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen w-full flex justify-center items-center">
+    <div className="bg-transparent min-h-screen w-full flex justify-center items-center">
       <div className="bg-white w-full py-10 px-2 md:px-10 md:w-3/4 lg:w-1/2 mx-auto rounded-lg overflow-hidden">
         <h1 className="text-textPrimary text-center text-4xl font-medium mb-5">
           Create Post
